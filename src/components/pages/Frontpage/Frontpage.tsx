@@ -5,7 +5,7 @@ import axios from 'axios';
 import Link from 'next/link';
 
 import { config } from '../../../config/config';
-import { LogoIcon } from '../../../Icons/LogoIcon';
+import { LogoIcon } from '../../common/Icons/LogoIcon';
 import { FrontpageStyled } from './Frontpage.styles';
 
 const { apiUrl } = config;

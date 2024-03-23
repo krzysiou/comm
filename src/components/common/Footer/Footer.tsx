@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 
 import { FooterStyled } from './Footer.styles';
-import { GitHubIcon } from '../../../Icons/GitHubIcon';
+import { GitHubIcon } from '../Icons/GitHubIcon';
 
 const Footer: React.FC = () => {
   return (
