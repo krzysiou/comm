@@ -5,6 +5,7 @@ import React from 'react';
 import { StyledComponentsRegistry } from './registry';
 import { Reset } from '../public/styles/Reset.styles';
 import { Globals } from '../public/styles/Globals.styles';
+import { Footer } from '../src/components/common/Footer/Footer';
 
 export default function RootLayout({
   children,
@@ -21,7 +22,10 @@ export default function RootLayout({
         <StyledComponentsRegistry>
           <Reset />
           <Globals />
-          <body>{children}</body>
+          <body>
+            {children}
+            <Footer />
+          </body>
         </StyledComponentsRegistry>
       </html>
     </>
