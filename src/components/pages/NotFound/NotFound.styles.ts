@@ -12,10 +12,23 @@ const NotFoundStyled = styled.div`
   justify-content: space-around;
   padding: ${paddings.mobile};
   text-align: center;
-  color: ${colors.error};
 
   ${mediaQuery['web']} {
     padding: ${paddings.web};
+  }
+
+  img {
+    width: 150px;
+    height: 150px;
+    opacity: 0.4;
+    z-index: -1;
+    margin-bottom: 15px;
+
+    ${mediaQuery['web']} {
+      width: 250px;
+      height: 250px;
+      margin-bottom: 30px;
+    }
   }
 
   .hero {
@@ -24,6 +37,7 @@ const NotFoundStyled = styled.div`
     font-weight: 600;
     margin-bottom: 15px;
     max-width: ${mediaBreakpoint};
+    color: ${colors.dark};
 
     ${mediaQuery['web']} {
       font-size: 32px;
@@ -35,13 +49,13 @@ const NotFoundStyled = styled.div`
 
   .error {
     color: ${colors.dark};
-    font-size: 16px;
-    line-height: 16px;
+    font-size: 14px;
+    line-height: 14px;
     font-weight: 200;
 
     ${mediaQuery['web']} {
-      font-size: 24px;
-      line-height: 24px;
+      font-size: 18px;
+      line-height: 18px;
       font-weight: 200;
     }
   }

@@ -22,7 +22,7 @@ const DropdownStyled = styled.div`
     justify-content: space-around;
     background-color: ${colors.light};
     padding: 10px;
-    border-bottom: 1px solid ${colors.accentLight};
+    border-bottom: 1px solid ${colors.dark};
     text-align: right;
 
     .menu-item {
@@ -31,8 +31,7 @@ const DropdownStyled = styled.div`
       .headerLink {
         font-size: 16px;
         font-weight: 200;
-        color: ${colors.main};
-        border-bottom: 2px solid ${colors.light};
+        color: ${colors.dark};
         text-decoration: none;
         transition: 0.2s;
       }
