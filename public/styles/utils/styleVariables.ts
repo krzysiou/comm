@@ -1,6 +1,7 @@
 type Colors = {
   main: string;
   light: string;
+  semiLight: string;
   dark: string;
   action: string;
   accentLight: string;
@@ -27,6 +28,7 @@ const styleVariables: StyleVariables = {
   colors: {
     main: '#11B5E4',
     light: '#ffffff',
+    semiLight: '#f2f2f2',
     dark: '#2A2C35',
     action: '#007bff',
     accentLight: '#0CAADC',
