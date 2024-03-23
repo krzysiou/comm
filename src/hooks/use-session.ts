@@ -82,4 +82,4 @@ const useSession = () => {
   };
 };
 
-export { useSession };
+export { useSession, COOKIE_NAME };

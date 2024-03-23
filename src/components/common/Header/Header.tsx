@@ -37,7 +37,11 @@ const Header: React.FC = () => {
     </Link>
   );
 
-  const loginLink = (
+  const loginOrProfileLink = hasSession ? (
+    <Link href="/profile" className="headerLink" onClick={closeMenu}>
+      Profile
+    </Link>
+  ) : (
     <Link href="/login" className="headerLink" onClick={closeMenu}>
       Sign in
     </Link>
@@ -55,11 +59,11 @@ const Header: React.FC = () => {
       <Dropdown
         open={open}
         trigger={dropdownTrigger}
-        menu={[homeLink, loginLink, logoutLink]}
+        menu={[homeLink, loginOrProfileLink, logoutLink]}
       />
       <div className="headerLinks">
         {homeLink}
-        {loginLink}
+        {loginOrProfileLink}
         {logoutLink}
       </div>
     </HeaderStyled>
