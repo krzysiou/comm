@@ -89,6 +89,7 @@ const RegisterStyled = styled.div<RegisterStyledProps>`
       width: calc(100% - 20px);
       border: none;
       height: 30px;
+      font-size: 16px;
       background-color: transparent;
       color: ${colors.accentDark};
 
