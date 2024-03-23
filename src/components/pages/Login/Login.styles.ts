@@ -74,18 +74,27 @@ const LoginStyled = styled.div<LoginStyledProps>`
     flex-direction: row;
     justify-content: space-between;
     width: calc(100% - 20px);
-    height: 20px;
+    height: 30px;
     border: none;
     margin: 5px 0 5px;
     padding: 5px 10px;
     background-color: ${colors.semiLight};
     border-radius: 5px;
 
+    ${mediaQuery['web']} {
+      height: 20px;
+    }
+
     .form-input {
       width: calc(100% - 20px);
       border: none;
+      height: 30px;
       background-color: transparent;
       color: ${colors.accentDark};
+
+      ${mediaQuery['web']} {
+        height: 20px;
+      }
 
       &:focus {
         outline-width: 0;
