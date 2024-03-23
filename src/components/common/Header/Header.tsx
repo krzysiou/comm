@@ -2,17 +2,28 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 import { LogoIcon } from '../Icons/LogoIcon';
 import { MenuIcon } from '../Icons/MenuIcon';
 import { HeaderStyled } from './Header.styles';
 import { Dropdown } from './Dropdown';
+import { useSession } from '../../../hooks/use-session';
 
 const Header: React.FC = () => {
   const [open, setOpen] = useState<boolean>(false);
 
+  const router = useRouter();
+  const { hasSession, logout } = useSession();
+
   const handleOpen = () => setOpen(!open);
   const closeMenu = () => setOpen(false);
+
+  const handleSignOutClick = () => {
+    logout();
+    closeMenu();
+    router.push('/login');
+  };
 
   const dropdownTrigger = (
     <button onClick={handleOpen}>
@@ -32,17 +43,24 @@ const Header: React.FC = () => {
     </Link>
   );
 
+  const logoutLink = hasSession && (
+    <a className="headerLink" onClick={handleSignOutClick}>
+      Sign out
+    </a>
+  );
+
   return (
     <HeaderStyled open={open}>
       <LogoIcon />
       <Dropdown
         open={open}
         trigger={dropdownTrigger}
-        menu={[homeLink, loginLink]}
+        menu={[homeLink, loginLink, logoutLink]}
       />
       <div className="headerLinks">
         {homeLink}
         {loginLink}
+        {logoutLink}
       </div>
     </HeaderStyled>
   );
