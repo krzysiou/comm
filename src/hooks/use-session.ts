@@ -43,7 +43,7 @@ const useSession = () => {
         password,
       });
 
-      await Cookies.set(COOKIE_NAME, JSON.stringify(data), {
+      await Cookies.set(COOKIE_NAME, data.token, {
         expires: 7,
       });
 
@@ -59,7 +59,7 @@ const useSession = () => {
         password,
       });
 
-      await Cookies.set(COOKIE_NAME, JSON.stringify(data), {
+      await Cookies.set(COOKIE_NAME, data.token, {
         expires: 7,
       });
 
