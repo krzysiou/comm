@@ -31,6 +31,10 @@ const FrontpageStyled = styled.div`
       margin-bottom: 30px;
     }
   }
+
+  .server-status {
+    margin-bottom: 15px;
+  }
 `;
 
 export { FrontpageStyled };
