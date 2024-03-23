@@ -99,7 +99,7 @@ const RegisterStyled = styled.div<RegisterStyledProps>`
       }
 
       &:focus {
-        outline-width: 0;
+        outline: none;
       }
     }
   }
