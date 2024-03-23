@@ -92,6 +92,7 @@ const LoginStyled = styled.div<LoginStyledProps>`
       font-size: 16px;
       background-color: transparent;
       color: ${colors.accentDark};
+      -webkit-tap-highlight-color: transparent;
 
       ${mediaQuery['web']} {
         height: 20px;
