@@ -2,9 +2,10 @@
 
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Link from 'next/link';
 
 import { config } from '../../../config/config';
-import { GitHubIcon } from '../../shared/Icons/GitHubIcon';
+import { LogoIcon } from '../../shared/Icons/LogoIcon';
 import { FrontpageStyled } from './Frontpage.styles';
 
 const { apiUrl } = config;
@@ -27,10 +28,21 @@ const Frontpage: React.FC = () => {
   }, []);
 
   return (
-    <FrontpageStyled>
-      <p className="hero">This is working page</p>
-      <p className="server-status">Server status: {serverMessage}</p>
-      <GitHubIcon />
+    <FrontpageStyled serveronline={serverMessage}>
+      <LogoIcon />
+      <div className="container">
+        <h1>Welcome to Comm</h1>
+        <p>
+          Communicate instantly through text messages. Start chatting with
+          friends, family, and colleagues today.
+        </p>
+        <p className="status">
+          Server status <span>{serverMessage}</span>
+        </p>
+        <Link href="/register" className="cta-btn">
+          Get Started
+        </Link>
+      </div>
     </FrontpageStyled>
   );
 };

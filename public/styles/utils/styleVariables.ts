@@ -22,14 +22,13 @@ type StyleVariables = {
 };
 
 const styleVariables: StyleVariables = {
-  fontFamily:
-    'Brandon Text, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif',
+  fontFamily: `'Trebuchet MS', sans-serif`,
   mediaBreakpoint: '641px',
   colors: {
     main: '#11B5E4',
     light: '#ffffff',
-    dark: '#1f1f1f',
-    action: '#1481BA',
+    dark: '#2A2C35',
+    action: '#007bff',
     accentLight: '#0CAADC',
     accentDark: '#034748',
     accentDarker: '#001021',
