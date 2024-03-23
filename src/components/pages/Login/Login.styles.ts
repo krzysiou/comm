@@ -99,7 +99,7 @@ const LoginStyled = styled.div<LoginStyledProps>`
       }
 
       &:focus {
-        outline-width: 0;
+        outline: none;
       }
     }
   }
