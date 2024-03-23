@@ -37,7 +37,7 @@ const styleVariables: StyleVariables = {
     error: '#d11f1f',
   },
   paddings: {
-    mobile: '80px 0 0',
+    mobile: '110px 0 0',
     web: '120px 0 0',
   },
 };

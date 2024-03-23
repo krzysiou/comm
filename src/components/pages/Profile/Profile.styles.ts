@@ -10,8 +10,8 @@ const ProfileStyled = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100%;
   padding: ${paddings.mobile};
-  width: 500px;
   margin: 0 auto;
 
   ${mediaQuery['web']} {
@@ -23,11 +23,12 @@ const ProfileStyled = styled.div`
     line-height: 36px;
     font-weight: 900;
     margin-bottom: 15px;
+    max-width: 350px;
     color: ${colors.dark};
+    text-align: center;
     max-width: ${mediaBreakpoint};
 
     ${mediaQuery['web']} {
-      max-width: 750px;
       margin-bottom: 30px;
     }
   }
