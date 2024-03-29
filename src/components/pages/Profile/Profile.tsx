@@ -34,25 +34,36 @@ const Profile: React.FC = () => {
     fetchData();
   }, [getUser]);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading)
+    return (
+      <ProfileStyled>
+        <div>Loading...</div>
+      </ProfileStyled>
+    );
 
   return (
     <ProfileStyled>
-      <div className="main-info">
-        <p>{(userData && userData.name) || 'undisclosed'}</p>
-        <p>{(userData && userData.surname) || 'undisclosed'}</p>
-      </div>
-      <div className="table">
-        <p>Work: {(userData && userData.work) || 'undisclosed'}</p>
-        <p>Hobby: {(userData && userData.hobby) || 'undisclosed'}</p>
-      </div>
-      <div className="bio">
-        About me: {(userData && userData.bio) || 'undisclosed'}
-      </div>
-      <div className="btn-container">
-        <Link href="/profile/edit" className="edit-button">
-          Edit
-        </Link>
+      <div>
+        {userData && (
+          <div>
+            <div className="main-info">
+              <p>{(userData && userData.name) || 'undisclosed'}</p>
+              <p>{(userData && userData.surname) || 'undisclosed'}</p>
+            </div>
+            <div className="table">
+              <p>Work: {(userData && userData.work) || 'undisclosed'}</p>
+              <p>Hobby: {(userData && userData.hobby) || 'undisclosed'}</p>
+            </div>
+            <div className="bio">
+              About me: {(userData && userData.bio) || 'undisclosed'}
+            </div>
+          </div>
+        )}
+        <div className="btn-container">
+          <Link href="/profile/edit" className="edit-button">
+            Edit
+          </Link>
+        </div>
       </div>
     </ProfileStyled>
   );
