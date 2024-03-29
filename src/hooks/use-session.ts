@@ -5,6 +5,8 @@ import Cookies from 'js-cookie';
 import { usePathname, useRouter } from 'next/navigation';
 import axios from 'axios';
 
+import type { EditPayload } from '@/components/pages/EditProfile/EditProfile';
+
 import { config } from '../config/config';
 
 type Session = {
@@ -23,11 +25,11 @@ const useSession = () => {
   const pathname = usePathname();
 
   useEffect(() => {
-    const tokenValue: Session = Cookies.get(COOKIE_NAME);
+    const tokenValue: string = Cookies.get(COOKIE_NAME);
 
     if (tokenValue) {
       setHasSession(true);
-      setToken(tokenValue.token);
+      setToken(tokenValue);
 
       return;
     }
@@ -73,11 +75,38 @@ const useSession = () => {
     router.push('/login');
   }, [router]);
 
+  const editProfile = useCallback(
+    async (payload: EditPayload) => {
+      await axios.post(`${apiUrl}/edit`, payload, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      router.push('/profile');
+    },
+    [router, token]
+  );
+
+  const getUser = useCallback(async () => {
+    if (token) {
+      const { data } = await axios.get(`${apiUrl}/user`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      return data;
+    }
+  }, [token]);
+
   return {
     token,
     hasSession,
     register,
     login,
+    editProfile,
+    getUser,
     logout,
   };
 };
