@@ -45,6 +45,7 @@ const MessagesStyled = styled.div<MessagesStyledProps>`
 
     .users {
       overflow: scroll;
+      width: 100%;
 
       > button {
         display: inline-block;
