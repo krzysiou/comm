@@ -18,8 +18,8 @@ This repository houses the codebase for the Community Collaboration Platform. It
 
 - TypeScript
 - Next.js
-- JWT token
 - Websockets
+- JWT
 - Axios
 
 ## Installation
@@ -43,5 +43,12 @@ Copy the `.env.example` file to `.env` and fill in the necessary configuration d
 ```
 npm run dev
 ```
+
+or
+
+```
+npm run build && npm run start
+```
+
 
 5. Access the platform in your web browser at `http://localhost:3000`.
