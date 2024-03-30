@@ -6,6 +6,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import axios from 'axios';
 
 import type { EditPayload } from '@/client/components/pages/EditProfile/EditProfile';
+import type { MessagePayload } from '../components/pages/Messages/Messages';
 
 import { config } from '../../config/config';
 
@@ -88,17 +89,27 @@ const useSession = () => {
     [router, token]
   );
 
-  const getUser = useCallback(async () => {
-    if (token) {
-      const { data } = await axios.get(`${apiUrl}/user`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+  const getConversation = useCallback(
+    async (senderId: string, recieverId: string) => {
+      if (token) {
+        const { data } = await axios.post<MessagePayload[]>(
+          `${apiUrl}/conversation`,
+          {
+            senderId,
+            recieverId,
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
 
-      return data;
-    }
-  }, [token]);
+        return data;
+      }
+    },
+    [token]
+  );
 
   return {
     token,
@@ -106,7 +117,7 @@ const useSession = () => {
     register,
     login,
     editProfile,
-    getUser,
+    getConversation,
     logout,
   };
 };

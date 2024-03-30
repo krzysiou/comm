@@ -95,6 +95,11 @@ const MessagesStyled = styled.div<MessagesStyledProps>`
 
     .chat {
       height: 520px;
+      overflow: scroll;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
 
     .bottom-bar {
@@ -135,4 +140,39 @@ const MessagesStyled = styled.div<MessagesStyledProps>`
   }
 `;
 
-export { MessagesStyled };
+interface VisibleMessageStyledParams {
+  isMe: string;
+}
+
+const VisibleMessageStyled = styled.div<VisibleMessageStyledParams>`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: ${(props) =>
+    props.isMe === 'yes' ? 'flex-end' : 'flex-start'};
+
+  .message-container {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: ${(props) =>
+      props.isMe === 'yes' ? 'flex-end' : 'flex-start'};
+
+    .label {
+      font-size: 12px;
+    }
+
+    .message {
+      background-color: ${(props) =>
+        props.isMe === 'yes' ? colors.action : colors.semiLight};
+      color: ${(props) => (props.isMe === 'yes' ? colors.light : colors.dark)};
+      padding: 5px;
+      border-radius: 5px;
+      overflow-wrap: anywhere;
+      font-size: 14px;
+    }
+  }
+`;
+
+export { MessagesStyled, VisibleMessageStyled };
