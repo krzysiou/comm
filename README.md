@@ -14,6 +14,13 @@ This repository houses the codebase for the Community Collaboration Platform. It
 - Includes features such as profile picture, bio, and contact information.
 - Provides privacy settings for controlling visibility of profile information.
 
+## Gallery
+
+Images | Images | Images
+:-------------------------:|:-------------------------:|:-------------------------:
+<img width="318" alt="Screenshot 2024-03-30 at 22 30 01" src="https://github.com/krzysiou/comm/assets/60892747/1d34001b-c2da-4df8-8c47-964ed810f88f">  |  <img width="315" alt="Screenshot 2024-03-30 at 22 30 12" src="https://github.com/krzysiou/comm/assets/60892747/1003bef5-0135-40c7-9633-32eb53e3299a"> | <img width="313" alt="Screenshot 2024-03-30 at 22 30 25" src="https://github.com/krzysiou/comm/assets/60892747/4a76c372-8037-4d00-8c6d-e8648bde31bd">
+<img width="322" alt="Screenshot 2024-03-30 at 22 29 46" src="https://github.com/krzysiou/comm/assets/60892747/d293c361-6f69-4bc2-bff8-6d1a74bec956"> | <img width="319" alt="Screenshot 2024-03-30 at 22 32 19" src="https://github.com/krzysiou/comm/assets/60892747/c388d07b-898b-4227-8682-d417d1a9db2c"> | <img width="317" alt="Screenshot 2024-03-30 at 22 35 48" src="https://github.com/krzysiou/comm/assets/60892747/df49730f-3a7c-4a18-ae26-2b529ec070f2">
+
 ## Technologies
 
 - TypeScript
