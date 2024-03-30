@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 import { styleVariables } from '../../../../../public/styles/utils/styleVariables';
 import { mediaQuery } from '../../../../../public/styles/utils/mediaQuery';
 
-const { colors, paddings } = styleVariables;
+const { colors } = styleVariables;
 
 interface MessagesStyledProps {
   opened: string;
@@ -22,10 +22,8 @@ const MessagesStyled = styled.div<MessagesStyledProps>`
   margin: 0 auto;
 
   ${mediaQuery['web']} {
-    position: relative;
-    padding: ${paddings.web};
-    width: 500px;
-    height: 400px;
+    height: calc(100% - 137px);
+    padding: 76px 0 0;
   }
 
   .people {
@@ -89,10 +87,6 @@ const MessagesStyled = styled.div<MessagesStyledProps>`
     width: calc(100% - 10px);
     height: 100%;
 
-    ${mediaQuery['web']} {
-      width: 350px;
-    }
-
     .top-bar {
       display: flex;
       align-items: center;
@@ -155,8 +149,6 @@ const MessagesStyled = styled.div<MessagesStyledProps>`
         }
 
         ${mediaQuery['web']} {
-          width: 380px;
-          height: 26px;
           margin-top: 0;
         }
       }
