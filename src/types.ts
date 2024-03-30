@@ -7,4 +7,12 @@ type AuthErrorObject = {
   password: ErrorObject;
 };
 
-export type { AuthErrorObject };
+type UserInfo = {
+  name: string;
+  surname: string;
+  work: string;
+  hobby: string;
+  bio: string;
+};
+
+export type { AuthErrorObject, UserInfo };

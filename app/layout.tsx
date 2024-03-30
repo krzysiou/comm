@@ -5,8 +5,8 @@ import React from 'react';
 import { StyledComponentsRegistry } from './registry';
 import { Reset } from '../public/styles/Reset.styles';
 import { Globals } from '../public/styles/Globals.styles';
-import { Footer } from '../src/components/common/Footer/Footer';
-import { Header } from '../src/components/common/Header/Header';
+import { Footer } from '../src/client/components/common/Footer/Footer';
+import { Header } from '../src/client/components/common/Header/Header';
 
 export default function RootLayout({
   children,

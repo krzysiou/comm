@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 
 import type { NextRequest } from 'next/server';
 
-import { COOKIE_NAME } from './src/hooks/use-session';
+import { COOKIE_NAME } from './src/client/hooks/use-session';
 
 const validationPaths = ['/login', '/register'];
 
