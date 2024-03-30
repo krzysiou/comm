@@ -41,6 +41,12 @@ const EditProfileStyled = styled.div`
         width: 100%;
         padding: 4px 0;
         height: 30px;
+        font-size: 16px;
+
+        ${mediaQuery['web']} {
+          font-size: 14px;
+          height: 20px;
+        }
       }
 
       textarea {
@@ -48,6 +54,12 @@ const EditProfileStyled = styled.div`
         width: 100%;
         padding: 4px 0;
         height: 70px;
+        font-size: 16px;
+
+        ${mediaQuery['web']} {
+          font-size: 14px;
+          height: 30px;
+        }
       }
     }
 
