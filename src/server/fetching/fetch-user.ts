@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import type { User } from '@/types';
 
-import { getToken } from '../session/get-token';
+import { getToken } from '../get-token';
 import { config } from '@/config/config';
 
 const { apiUrl } = config;

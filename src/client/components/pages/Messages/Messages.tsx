@@ -44,6 +44,8 @@ const Messages: React.FC<MessagesProps> = ({ users = [], currentUserId }) => {
   }, [currentMessage, currentUserId, openedUser.id]);
 
   useEffect(() => {
+    setVisibleMessages([]);
+
     if (openedUser) {
       getConversation(currentUserId, openedUser.id).then((messages) => {
         setVisibleMessages(messages);
@@ -72,7 +74,6 @@ const Messages: React.FC<MessagesProps> = ({ users = [], currentUserId }) => {
           messagePayload.senderId === openedUser.id)
       ) {
         setVisibleMessages((prevMessages) => [...prevMessages, messagePayload]);
-        //scrollRef.current.scrollIntoView({ block: 'end' });
       }
     };
 
