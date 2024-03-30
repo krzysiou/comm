@@ -25,7 +25,7 @@ const MessagesStyled = styled.div<MessagesStyledProps>`
     position: relative;
     padding: ${paddings.web};
     width: 500px;
-    height: 600px;
+    height: 400px;
   }
 
   .people {
@@ -123,10 +123,6 @@ const MessagesStyled = styled.div<MessagesStyledProps>`
 
       &::-webkit-scrollbar {
         display: none;
-      }
-
-      ${mediaQuery['web']} {
-        height: 520px;
       }
     }
 
