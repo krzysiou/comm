@@ -9,10 +9,14 @@ import type { UserInfo } from '@/types';
 import { ProfileStyled } from './Profile.styles';
 
 interface ProfileProps {
+  enableEdit?: boolean;
   userInfo?: UserInfo;
 }
 
-const Profile: React.FC<ProfileProps> = ({ userInfo = {} }) => {
+const Profile: React.FC<ProfileProps> = ({
+  enableEdit = true,
+  userInfo = {} as UserInfo,
+}) => {
   const router = useRouter();
 
   useEffect(() => {
@@ -32,17 +36,23 @@ const Profile: React.FC<ProfileProps> = ({ userInfo = {} }) => {
         </div>
         <div className="bio">About me: {userInfo.bio}</div>
       </div>
-    ) : null;
+    ) : (
+      <div>
+        <p>Personal information has not been provided</p>
+      </div>
+    );
 
   return (
     <ProfileStyled>
       <div>
         {userInformation}
-        <div className="btn-container">
-          <Link href="/profile/edit" className="edit-button">
-            Edit
-          </Link>
-        </div>
+        {enableEdit && (
+          <div className="btn-container">
+            <Link href="/profile/edit" className="edit-button">
+              Edit
+            </Link>
+          </div>
+        )}
       </div>
     </ProfileStyled>
   );

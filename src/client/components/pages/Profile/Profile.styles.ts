@@ -68,6 +68,7 @@ const ProfileStyled = styled.div`
     width: 100%;
     align-items: center;
     justify-content: flex-start;
+    margin-top: 10px;
 
     a {
       display: inline-block;
