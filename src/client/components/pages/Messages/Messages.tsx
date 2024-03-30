@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 
 import type { User } from '@/types';
@@ -14,14 +14,34 @@ interface MessagesProps {
 const Messages: React.FC<MessagesProps> = ({ users = [] }) => {
   const [nickname, setNickname] = useState<string>(users[0].username);
   const [openedUser, setOpenedUser] = useState<User>(users[0]);
-  const [currentMessage, setCurrentmessage] = useState<string>('');
+  const [currentMessage, setCurrentMessage] = useState<string>('');
+  const ref = useRef<HTMLInputElement>(null);
 
-  const handleMessageChange = (event) => setCurrentmessage(event.target.value);
+  const handleMessageChange = (event) => setCurrentMessage(event.target.value);
 
-  const sendMessage = () => {
+  const sendMessage = useCallback(() => {
     console.log('message: ', currentMessage);
     console.log('sent to: ', nickname);
-  };
+    setCurrentMessage('');
+  }, [currentMessage, nickname]);
+
+  useEffect(() => {
+    const handleKeyboardInput = (event: KeyboardEvent) => {
+      if (
+        ref.current &&
+        ref.current.contains(event.target as Node) &&
+        event.code === 'Enter'
+      ) {
+        sendMessage();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyboardInput);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyboardInput);
+    };
+  }, [sendMessage]);
 
   const mappedUsers = users.map((user) => {
     let name: string;
@@ -35,7 +55,7 @@ const Messages: React.FC<MessagesProps> = ({ users = [] }) => {
     return (
       <button
         onClick={() => {
-          setCurrentmessage('');
+          setCurrentMessage('');
           setOpenedUser(user);
           setNickname(name);
         }}
@@ -54,6 +74,7 @@ const Messages: React.FC<MessagesProps> = ({ users = [] }) => {
       <div className="chat"></div>
       <div className="bottom-bar">
         <input
+          ref={ref}
           type="text"
           onChange={handleMessageChange}
           value={currentMessage}
