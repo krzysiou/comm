@@ -59,6 +59,10 @@ const MessagesStyled = styled.div<MessagesStyledProps>`
       overflow: scroll;
       width: 100%;
 
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
       > button {
         display: inline-block;
         padding: 10px 20px;
