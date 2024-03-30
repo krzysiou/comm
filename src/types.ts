@@ -15,4 +15,11 @@ type UserInfo = {
   bio: string;
 };
 
-export type { AuthErrorObject, UserInfo };
+interface User {
+  id: string;
+  username: string;
+  password: string;
+  info?: UserInfo;
+}
+
+export type { AuthErrorObject, User, UserInfo };

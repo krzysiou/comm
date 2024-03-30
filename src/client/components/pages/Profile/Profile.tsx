@@ -12,7 +12,7 @@ interface ProfileProps {
   userInfo?: UserInfo;
 }
 
-const Profile: React.FC<ProfileProps> = ({ userInfo }) => {
+const Profile: React.FC<ProfileProps> = ({ userInfo = {} }) => {
   const router = useRouter();
 
   useEffect(() => {
