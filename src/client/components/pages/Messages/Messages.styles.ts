@@ -168,10 +168,10 @@ const MessagesStyled = styled.div<MessagesStyledProps>`
         font-size: 12px;
         transition: background-color 0.3s ease;
         margin: 10px;
-        display: none;
+        margin: 4px 5px 0;
 
         ${mediaQuery['web']} {
-          display: block;
+          margin: 0 10px 0;
         }
       }
 
