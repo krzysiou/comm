@@ -16,11 +16,10 @@ const MessagesStyled = styled.div<MessagesStyledProps>`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 100%;
+  height: calc(100% - 107px);
   padding: 60px 0 0;
   color: ${colors.dark};
   margin: 0 auto;
-  z-index: -1;
 
   ${mediaQuery['web']} {
     position: relative;
@@ -119,7 +118,7 @@ const MessagesStyled = styled.div<MessagesStyledProps>`
     }
 
     .chat {
-      height: calc(100% - 190px);
+      height: calc(100% - 83px);
       overflow: scroll;
 
       &::-webkit-scrollbar {
@@ -149,6 +148,7 @@ const MessagesStyled = styled.div<MessagesStyledProps>`
         background-color: ${colors.semiLight};
         -webkit-tap-highlight-color: transparent;
         margin-left: 10px;
+        font-size: 16px;
 
         &:focus {
           outline: none;

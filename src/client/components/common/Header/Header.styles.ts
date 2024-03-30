@@ -14,6 +14,7 @@ const HeaderStyled = styled.div<HeaderStyledProps>`
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: space-between;
