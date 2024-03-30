@@ -206,11 +206,8 @@ const VisibleMessageStyled = styled.div<VisibleMessageStyledParams>`
       props.isMe === 'yes' ? 'flex-end' : 'flex-start'};
 
     .label {
-      font-size: 8px;
-
-      ${mediaQuery['web']} {
-        font-size: 12px;
-      }
+      font-size: 12px;
+      margin-bottom: 1px;
     }
 
     .message {
@@ -220,11 +217,6 @@ const VisibleMessageStyled = styled.div<VisibleMessageStyledParams>`
       padding: 5px;
       border-radius: 5px;
       overflow-wrap: anywhere;
-      font-size: 10px;
-
-      ${mediaQuery['web']} {
-        font-size: 14px;
-      }
     }
   }
 `;
