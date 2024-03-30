@@ -10,18 +10,23 @@ interface MessagesStyledProps {
 }
 
 const MessagesStyled = styled.div<MessagesStyledProps>`
+  position: absolute;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  width: 600px;
-  height: 600px;
-  padding: ${paddings.mobile};
+  width: 100%;
+  height: 100%;
+  padding: 60px 0 0;
   color: ${colors.dark};
   margin: 0 auto;
+  z-index: -1;
 
   ${mediaQuery['web']} {
+    position: relative;
     padding: ${paddings.web};
+    width: 500px;
+    height: 600px;
   }
 
   .people {
@@ -30,17 +35,25 @@ const MessagesStyled = styled.div<MessagesStyledProps>`
     justify-content: flex-start;
     flex-direction: column;
     height: 100%;
-    width: 180px;
+    width: calc(100% - (100% - 140px));
     border-right: 1px ${colors.dark} solid;
     border-left: ${(props) =>
       props.opened === 'no' ? `1px ${colors.dark} solid` : 'none'};
 
+    ${mediaQuery['web']} {
+      width: 180px;
+    }
+
     > p {
-      font-size: 20px;
+      font-size: 16px;
       width: 100%;
       border-bottom: 1px ${colors.dark} solid;
       text-align: center;
       padding: 10px 0;
+
+      ${mediaQuery['web']} {
+        font-size: 20px;
+      }
     }
 
     .users {
@@ -53,10 +66,14 @@ const MessagesStyled = styled.div<MessagesStyledProps>`
         background-color: transparent;
         color: ${colors.dark};
         text-decoration: none;
-        font-size: 14px;
+        font-size: 10px;
         width: 100%;
         transition: background-color 0.2s ease;
         border: none;
+
+        ${mediaQuery['web']} {
+          font-size: 14px;
+        }
 
         &:hover {
           background-color: ${colors.semiLight};
@@ -66,8 +83,12 @@ const MessagesStyled = styled.div<MessagesStyledProps>`
   }
 
   .conversation {
-    width: 420px;
+    width: calc(100% - 10px);
     height: 100%;
+
+    ${mediaQuery['web']} {
+      width: 350px;
+    }
 
     .top-bar {
       display: flex;
@@ -82,10 +103,14 @@ const MessagesStyled = styled.div<MessagesStyledProps>`
       border-bottom: 1px solid ${colors.dark};
 
       > p {
-        font-size: 20px;
+        font-size: 16px;
         font-weight: 200;
         transition: 0.2s;
         cursor: pointer;
+
+        ${mediaQuery['web']} {
+          font-size: 20px;
+        }
 
         &:hover {
           color: ${colors.action};
@@ -94,11 +119,15 @@ const MessagesStyled = styled.div<MessagesStyledProps>`
     }
 
     .chat {
-      height: 520px;
+      height: calc(100% - 190px);
       overflow: scroll;
 
       &::-webkit-scrollbar {
         display: none;
+      }
+
+      ${mediaQuery['web']} {
+        height: 520px;
       }
     }
 
@@ -111,13 +140,25 @@ const MessagesStyled = styled.div<MessagesStyledProps>`
       justify-content: space-between;
 
       input {
-        height: 26px;
-        width: 380px;
+        height: 30px;
+        margin-top: 5px;
+        width: calc(100% - 40px);
         padding: 2px 10px;
         border-radius: 5px;
         border: none;
         background-color: ${colors.semiLight};
+        -webkit-tap-highlight-color: transparent;
         margin-left: 10px;
+
+        &:focus {
+          outline: none;
+        }
+
+        ${mediaQuery['web']} {
+          width: 380px;
+          height: 26px;
+          margin-top: 0;
+        }
       }
 
       button {
@@ -131,6 +172,11 @@ const MessagesStyled = styled.div<MessagesStyledProps>`
         font-size: 12px;
         transition: background-color 0.3s ease;
         margin: 10px;
+        display: none;
+
+        ${mediaQuery['web']} {
+          display: block;
+        }
       }
 
       button:hover {
@@ -160,7 +206,11 @@ const VisibleMessageStyled = styled.div<VisibleMessageStyledParams>`
       props.isMe === 'yes' ? 'flex-end' : 'flex-start'};
 
     .label {
-      font-size: 12px;
+      font-size: 8px;
+
+      ${mediaQuery['web']} {
+        font-size: 12px;
+      }
     }
 
     .message {
@@ -170,7 +220,11 @@ const VisibleMessageStyled = styled.div<VisibleMessageStyledParams>`
       padding: 5px;
       border-radius: 5px;
       overflow-wrap: anywhere;
-      font-size: 14px;
+      font-size: 10px;
+
+      ${mediaQuery['web']} {
+        font-size: 14px;
+      }
     }
   }
 `;

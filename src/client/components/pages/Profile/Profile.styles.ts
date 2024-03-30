@@ -23,12 +23,13 @@ const ProfileStyled = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 800px;
+  width: 300px;
   padding: ${paddings.mobile};
   margin: 0 auto;
 
   ${mediaQuery['web']} {
     padding: ${paddings.web};
+    width: 500px;
   }
 
   .main-info {

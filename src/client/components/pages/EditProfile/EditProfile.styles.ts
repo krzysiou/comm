@@ -40,12 +40,14 @@ const EditProfileStyled = styled.div`
         margin-top: 4px;
         width: 100%;
         padding: 4px 0;
+        height: 30px;
       }
 
       textarea {
         margin-top: 4px;
         width: 100%;
         padding: 4px 0;
+        height: 70px;
       }
     }
 
