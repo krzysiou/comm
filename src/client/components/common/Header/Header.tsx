@@ -63,7 +63,10 @@ const Header: React.FC = () => {
 
   return (
     <HeaderStyled open={open}>
-      <LogoIcon />
+      <Link href="/">
+        <LogoIcon />
+      </Link>
+
       <Dropdown
         open={open}
         trigger={dropdownTrigger}
