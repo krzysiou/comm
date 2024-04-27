@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 import { styleVariables } from '../../../../../public/styles/utils/styleVariables';
 import { mediaQuery } from '../../../../../public/styles/utils/mediaQuery';
 
-const { colors } = styleVariables;
+const { colors, fontFamily } = styleVariables;
 
 interface MessagesStyledProps {
   opened: string;
@@ -200,6 +200,19 @@ const VisibleMessageStyled = styled.div<VisibleMessageStyledParams>`
     .label {
       font-size: 12px;
       margin-bottom: 1px;
+
+      .delete-msg {
+        font-size: 12px;
+        margin-bottom: 1px;
+        font-family: ${fontFamily};
+        background-color: transparent;
+        border: none;
+        color: ${colors.error};
+      }
+
+      .delete-msg:hover {
+        color: ${colors.dark};
+      }
     }
 
     .message {

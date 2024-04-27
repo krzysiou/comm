@@ -77,10 +77,29 @@ const Messages: React.FC<MessagesProps> = ({ users = [], currentUserId }) => {
       }
     };
 
+    const setUpdatedMessages = (messages: MessagePayload[]) => {
+      if (messages.length === 0) {
+        setVisibleMessages([]);
+
+        return;
+      }
+
+      if (
+        (messages[0].recieverId === openedUser.id &&
+          messages[0].senderId === currentUserId) ||
+        (messages[0].recieverId === currentUserId &&
+          messages[0].senderId === openedUser.id)
+      ) {
+        setVisibleMessages(messages);
+      }
+    };
+
     socket.on('chat message', recieveMessage);
+    socket.on('chat delete', setUpdatedMessages);
 
     return () => {
       socket.off('chat message', recieveMessage);
+      socket.on('chat delete', setUpdatedMessages);
     };
   }, [currentUserId, openedUser.id]);
 
@@ -111,7 +130,7 @@ const Messages: React.FC<MessagesProps> = ({ users = [], currentUserId }) => {
       name = user.username;
     }
 
-    return (
+    return user.id !== currentUserId ? (
       <button
         onClick={() => {
           setCurrentMessage('');
@@ -122,20 +141,46 @@ const Messages: React.FC<MessagesProps> = ({ users = [], currentUserId }) => {
       >
         {name}
       </button>
-    );
+    ) : null;
   });
+
+  const deleteMessage = useCallback(
+    ({ senderId, recieverId, message }: MessagePayload) => {
+      socket.emit('chat delete', {
+        senderId,
+        recieverId,
+        message,
+      });
+    },
+    []
+  );
+
+  const deleteMessageButton = (payload: MessagePayload) => {
+    return (
+      <button className="delete-msg" onClick={() => deleteMessage(payload)}>
+        Delete
+      </button>
+    );
+  };
 
   const mappedMessages =
     visibleMessages &&
-    visibleMessages.map((message) => {
+    visibleMessages.map((message, index) => {
       return (
         <VisibleMessageStyled
           isMe={message.senderId === currentUserId ? 'yes' : 'no'}
-          key={message.senderId}
+          key={index}
         >
-          <div className="message-container" key={message.senderId}>
+          <div className="message-container">
             <p className="label">
               {message.senderId === currentUserId ? 'You' : 'Them'}
+              {message.senderId === currentUserId
+                ? deleteMessageButton({
+                    senderId: message.senderId,
+                    recieverId: message.recieverId,
+                    message: message.message,
+                  })
+                : null}
             </p>
             <p className="message">{message.message}</p>
           </div>
