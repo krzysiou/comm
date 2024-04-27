@@ -89,6 +89,20 @@ const useSession = () => {
     [router, token]
   );
 
+  const deleteAccount = useCallback(async () => {
+    await Cookies.remove(COOKIE_NAME);
+    await axios.post(
+      `${apiUrl}/delete`,
+      {},
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    router.push('/');
+  }, [router, token]);
+
   const getConversation = useCallback(
     async (senderId: string, recieverId: string) => {
       if (token) {
@@ -119,6 +133,7 @@ const useSession = () => {
     editProfile,
     getConversation,
     logout,
+    deleteAccount,
   };
 };
 

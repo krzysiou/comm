@@ -7,6 +7,7 @@ import Link from 'next/link';
 import type { UserInfo } from '@/types';
 
 import { ProfileStyled } from './Profile.styles';
+import { useSession } from '@/client/hooks/use-session';
 
 interface ProfileProps {
   enableEdit?: boolean;
@@ -19,9 +20,20 @@ const Profile: React.FC<ProfileProps> = ({
 }) => {
   const router = useRouter();
 
+  const { deleteAccount } = useSession();
+
   useEffect(() => {
     router.refresh();
   }, [router]);
+
+  const handleDelete = async (e) => {
+    e.preventDefault();
+    try {
+      await deleteAccount();
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
 
   const userInformation =
     userInfo.name !== undefined ? (
@@ -51,6 +63,9 @@ const Profile: React.FC<ProfileProps> = ({
             <Link href="/profile/edit" className="edit-button">
               Edit
             </Link>
+            <button className="delete" onClick={handleDelete}>
+              Delete Account
+            </button>
           </div>
         )}
       </div>

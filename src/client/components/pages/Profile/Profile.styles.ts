@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 import { styleVariables } from '../../../../../public/styles/utils/styleVariables';
 import { mediaQuery } from '../../../../../public/styles/utils/mediaQuery';
 
-const { colors, paddings } = styleVariables;
+const { colors, paddings, fontFamily } = styleVariables;
 
 const ProfileStyled = styled.div`
   display: flex;
@@ -70,18 +70,29 @@ const ProfileStyled = styled.div`
     align-items: center;
     justify-content: flex-start;
     margin-top: 10px;
+    gap: 20px;
 
-    a {
+    a,
+    button {
+      font-family: ${fontFamily};
       display: inline-block;
       padding: 8px 16px;
       background-color: ${colors.action};
       color: ${colors.light};
       text-decoration: none;
       border-radius: 5px;
+      line-height: 12px;
       font-size: 12px;
+      border: none;
       transition: background-color 0.3s ease;
     }
-    a:hover {
+
+    .delete {
+      background-color: ${colors.error};
+    }
+
+    a:hover,
+    .delete:hover {
       background-color: ${colors.dark};
     }
   }
